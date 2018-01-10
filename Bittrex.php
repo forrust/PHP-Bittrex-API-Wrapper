@@ -32,6 +32,7 @@
 			}
 
 			$l_curl = curl_init($l_uri);
+				curl_setopt($l_curl, CURLOPT_RETURNTRANSFER, TRUE);
 				curl_setopt($l_curl, CURLOPT_HTTPHEADER, array('apisign:'.hash_hmac('sha512', $l_uri, $this->m_apiSecret)));
 			$l_curlResult = curl_exec($l_curl);
 
